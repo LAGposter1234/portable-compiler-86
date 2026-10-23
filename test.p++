@@ -1,0 +1,3 @@
+for x = 0 x < 10 inc 1
+    print Hello, World!$
+endf
