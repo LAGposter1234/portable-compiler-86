@@ -150,16 +150,17 @@ int main(int argc, char* argv[]) {
     std::string src((std::istreambuf_iterator<char>(file)), {});
 
     std::string mode = argv[1];
-    target = "-86";
+    std::string target = "-86";
     if (argc > 4) {
         target = argv[4];
     }
 
     if (mode == "-p") {
+        std::string asmout;
         if (target == "-sos") {
-            std::string asmout = compilepsos(src);
+            asmout = compilepsos(src);
         } else if (target == "-86") {
-            std::string asmout = compilep86(src);
+            asmout = compilep86(src);
         } else {
             throw "no";
         }
@@ -174,10 +175,11 @@ int main(int argc, char* argv[]) {
         return 1;
     } else if (mode == "-p++") {
         std::string psrc = compileppp(src);
+        std::string asmout;
         if (target == "-sos") {
-            std::string asmout = compilepsos(src);
+            asmout = compilepsos(src);
         } else if (target == "-86") {
-            std::string asmout = compilep86(src);
+            asmout = compilep86(src);
         } else {
             throw "no";
         }
